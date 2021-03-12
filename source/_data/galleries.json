@@ -1,0 +1,22 @@
+[{
+  "name": "厦门",
+  "cover": "/images/galleries/xiamen/1.jpg",
+  "description": "滨海风光，秀色可餐。",
+  "photos": 
+  [ 
+    "/images/galleries/xiamen/1.jpg",
+	"/images/galleries/xiamen/5.jpg",
+	"/images/galleries/xiamen/6.jpg",
+	"/images/galleries/xiamen/7.jpg"
+  ]
+},
+{
+  "name": "航空",
+  "cover": "/images/galleries/hangkong/1.png",
+  "description": "高远的天空，永恒的追求。",
+  "photos": 
+  [
+    "/images/galleries/hangkong/1.png",
+    "/images/galleries/hangkong/2.png"
+  ]
+}]
