@@ -1,7 +1,7 @@
 ---
 title: Windows 下 CLion 配置 SDL2 开发环境
 date: 2021-03-12 13:50:22
-image: /images/post/p1.png
+image: /images/post/p2.png
 tags: [CLion,SDL2]
 categories:
 - C++
@@ -16,10 +16,10 @@ SDL（Simple DirectMedia Layer）是一套开发源代码的跨平台多媒体�
 
 开发环境：
 
-- 系统：Windows 10
-- IDE：CLion
-- 编译器：MinGW 
-- 开发库：SDL2
+- 系统：Windows 10
+- IDE：CLion
+- 编译器：MinGW
+- 开发库：SDL2
 
 ## 下载配置环境
 
@@ -29,7 +29,7 @@ SDL（Simple DirectMedia Layer）是一套开发源代码的跨平台多媒体�
 
 安装后，打开CLion里的Settings -> Build,Execution,Deployment -> Toolchains 里配置一下MinGW编译器，正常只要安装完MinGW后CLion会自动帮你配置好，如下图所示：
 
-<img src="Windows-CLion-SDL2/image-20210312140120151.png" alt="image-20210312140120151" style="zoom:67%;" />
+<img src="Windows_CLion_SDL2/image_20210312140120151.png" alt="image-20210312140120151" style="zoom:67%;" />
 
 
 
@@ -39,13 +39,13 @@ SDL（Simple DirectMedia Layer）是一套开发源代码的跨平台多媒体�
 
 我使用了CLion来开发，这里选择下载最新的MinGW开发库，如果使用Visual Studio开发的话，选择下载VC开发库。如下图所示：
 
-![image-20210312140222232](Windows-CLion-SDL2/image-20210312140222232.png)
+![image-20210312140222232](Windows_CLion_SDL2/image_20210312140222232.png)
 
 
 
 下载下来解压后，文件的结构应该如下图所示：
 
-![image-20210312140702674](Windows-CLion-SDL2/image-20210312140702674.png)
+![image-20210312140702674](Windows_CLion_SDL2/image_20210312140702674.png)
 
 主要包含使用说明、doc文档，以及库文件。这里的库文件包含i686和x86_64两种架构，每一种都包含了头文件和动态链接库。因为我们先前安装的是x86_64架构的MinGW，所以之后我们会选择使用x86_64的库文件。
 
@@ -60,11 +60,11 @@ SDL（Simple DirectMedia Layer）是一套开发源代码的跨平台多媒体�
 
 在构建完项目后，在项目目录创建一个SDL2文件夹，用来存放使用到的库。如下图所示：
 
-![image-20210312150932704](Windows-CLion-SDL2/image-20210312150932704.png)
+![image-20210312150932704](Windows_CLion_SDL2/image_20210312150932704.png)
 
 博主的项目不仅仅使用到了SDL2主体的库，还是用到了其衍生的SDL2_image以及SDL2_ttf的库，我把他们归纳到SDL2文件夹里，如下图所示：
 
-![image-20210312151218217](Windows-CLion-SDL2/image-20210312151218217.png)
+![image-20210312151218217](Windows_CLion_SDL2/image_20210312151218217.png)
 
 
 
