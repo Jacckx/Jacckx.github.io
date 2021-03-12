@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Jacckx</title>
+  <title>SDL2 - Jacckx</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
@@ -57,7 +57,7 @@
     var CONFIG = window.CONFIG || {};
     var ZHAOO = window.ZHAOO || {};
     CONFIG = {
-      isHome: true,
+      isHome: false,
       fancybox: true,
       pjax: false,
       lazyload: {
@@ -126,6 +126,24 @@
   
 
 
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">标签</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
   
 
 <nav class="menu">
@@ -134,7 +152,7 @@
       <i class="iconfont iconbaseline-close-px"></i>
     </div>
     <ul class="menu-content"><li class="menu-item">
-        <a href="/ " class="underline active"> 首页</a>
+        <a href="/ " class="underline "> 首页</a>
       </li><li class="menu-item">
         <a href="/galleries/ " class="underline "> 摄影</a>
       </li><li class="menu-item">
@@ -152,94 +170,23 @@
   </div>
 </nav>
   <main id="main">
-  
-    <div class="preview">
-  <nav class="navbar j-navbar-menu">
-    <i class="iconfont iconmenu"></i>
-  </nav>
-  <div class="preview-image">
-    <h2 class="preview-motto" id="motto">我在开了灯的床头下，想问问自己的心啊。</h2>
-    
-      <div class="preview-overlay">
-        <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-          <defs>
-            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-          </defs>
-          <g class="preview-parallax">
-            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(var(--color-background-rgb),0.7"></use>
-            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(var(--color-background-rgb),0.5)"></use>
-            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(var(--color-background-rgb),0.3)"></use>
-            <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--color-background)"></use>
-          </g>
-        </svg>
-      </div>
-    
-  </div>
-  <div class="preview-scroll">
-    <a href="#container" class="smooth-scroll"><i class="iconfont iconMouse"></i></a>
-  </div>
-</div>
-  
-  <div class="container" id="container">
-    <section class="row post">
-  
-    
-
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2021/03/12/Windows-CLion-SDL2/" class="post-image">
-      <img   class="lazyload" data-original="/images/post/p1.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2021/03/12/Windows-CLion-SDL2/" title="Windows 下 CLion 配置 SDL2 开发环境" >Windows 下 CLion 配置 SDL2 开发环境</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">SDL（Simple DirectMedia Layer）是一套开发源代码的跨平台多媒体开发库，使用C语言编写。SDL提供了多种控制图像，声音，输出入等等接口供开发者使用。目前SDL多用于游戏开...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>三月 12, 2021</span>
+  <section class="archive">
+    <div class="archive-container">
+      <div class="archive-post">
+        <h2 class="archive-total"># SDL2</h2>
         
-        <span class="post-info-item"><i class="iconfont iconfont-size"></i>1912</span>
+        
+          
+            <h3 class="archive-year">2021 年</h3>
+          
+          <div class="archive-item">
+            <a class="archive-date" href="/2021/03/12/Windows-CLion-SDL2/">03/12</a>
+            <a class="archive-title" href="/2021/03/12/Windows-CLion-SDL2/">Windows 下 CLion 配置 SDL2 开发环境</a>
+          </div>
+        
       </div>
     </div>
-  </div>
-</div>
-
-  
-    
-
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2021/02/28/Hexo_Custom_Domain/" class="post-image">
-      <img   class="lazyload" data-original="/images/post/p1.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2021/02/28/Hexo_Custom_Domain/" title="Hexo博客搭建：个人域名绑定" >Hexo博客搭建：个人域名绑定</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">在GitHub上部署Hexo博客后，其博客默认域名为example.github.io。如果对默认的域名不满意，可以绑定成个人拥有的域名。
-购买域名本站使用的域名为Namesilo平台下的购买的...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>二月 28, 2021</span>
-        
-        <span class="post-info-item"><i class="iconfont iconfont-size"></i>1853</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-</section>
-    <section class="paginator">
-  
-</section>
-  </div>
+  </section>
 </main>
   
 

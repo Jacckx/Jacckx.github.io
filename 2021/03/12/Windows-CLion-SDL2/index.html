@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Windows 下 CLion 配置 SDL2 开发环境 - Jacckx</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="SDL（Simple DirectMedia Laye...">
+  <meta name="author" content="Jacckx">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: '/images/theme/alipay.jpg',
+        wechat: '/images/theme/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/welcome-image.jpg',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-cod.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">Windows 下 CLion 配置 SDL2 开发环境</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/post/p1.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Windows 下 CLion 配置 SDL2 开发环境</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>三月 12, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1912</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <p>SDL（Simple DirectMedia Layer）是一套开发源代码的跨平台多媒体开发库，使用C语言编写。SDL提供了多种控制图像，声音，输出入等等接口供开发者使用。目前SDL多用于游戏开发、模拟器、媒体播放器等多媒体应用领域。博主正好大二的C++课程需要用到SDL2来开发一款小游戏。</p>
+<p>那这篇博客就简单记录下我在Window系统下，使用CLion配置SDL2开发环境的过程。</p>
+<p>开发环境：</p>
+<ul>
+<li>系统：Windows 10</li>
+<li>IDE：CLion</li>
+<li>编译器：MinGW </li>
+<li>开发库：SDL2</li>
+</ul>
+<h2 id="下载配置环境"><a href="#下载配置环境" class="headerlink" title="下载配置环境"></a>下载配置环境</h2><p>官方下载MinGW：<a target="_blank" rel="noopener" href="http://mingw-w64.org/doku.php/download/mingw-builds">http://mingw-w64.org/doku.php/download/mingw-builds</a></p>
+<p>点击<code>Sourceforge</code>跳转到新页面后等待五秒钟就会开始下载安装程序。</p>
+<p>安装后，打开CLion里的Settings -&gt; Build,Execution,Deployment -&gt; Toolchains 里配置一下MinGW编译器，正常只要安装完MinGW后CLion会自动帮你配置好，如下图所示：</p>
+<img   class="lazyload" data-original="/2021/03/12/Windows-CLion-SDL2/image-20210312140120151.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210312140120151" style="zoom:67%;">
+
+
+
+
+
+<p>官方下载SDL2：<a target="_blank" rel="noopener" href="https://www.libsdl.org/download-2.0.php">https://www.libsdl.org/download-2.0.php</a></p>
+<p>我使用了CLion来开发，这里选择下载最新的MinGW开发库，如果使用Visual Studio开发的话，选择下载VC开发库。如下图所示：</p>
+<p><img   class="lazyload" data-original="/2021/03/12/Windows-CLion-SDL2/image-20210312140222232.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210312140222232"></p>
+<p>下载下来解压后，文件的结构应该如下图所示：</p>
+<p><img   class="lazyload" data-original="/2021/03/12/Windows-CLion-SDL2/image-20210312140702674.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210312140702674"></p>
+<p>主要包含使用说明、doc文档，以及库文件。这里的库文件包含i686和x86_64两种架构，每一种都包含了头文件和动态链接库。因为我们先前安装的是x86_64架构的MinGW，所以之后我们会选择使用x86_64的库文件。</p>
+<blockquote>
+<p>说明一下：</p>
+<p>.dll后缀的为动态库</p>
+<p>.lib后缀的为静态库</p>
+</blockquote>
+<p>在构建完项目后，在项目目录创建一个SDL2文件夹，用来存放使用到的库。如下图所示：</p>
+<p><img   class="lazyload" data-original="/2021/03/12/Windows-CLion-SDL2/image-20210312150932704.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210312150932704"></p>
+<p>博主的项目不仅仅使用到了SDL2主体的库，还是用到了其衍生的SDL2_image以及SDL2_ttf的库，我把他们归纳到SDL2文件夹里，如下图所示：</p>
+<p><img   class="lazyload" data-original="/2021/03/12/Windows-CLion-SDL2/image-20210312151218217.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  alt="image-20210312151218217"></p>
+<p>一切准备好后现在要开始关联SDL2开发库了。SDL说白了就是一个C语言库，因此配置就和其他库一样，只需要在项目的CMakeLists里配置如下命令就行了：</p>
+<blockquote>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">cmake_minimum_required</span>(VERSION <span class="hljs-number">3.17</span>)<br><span class="hljs-keyword">project</span>(CPP_cw)<br><br><span class="hljs-keyword">set</span>(CMAKE_CXX_STANDARD <span class="hljs-number">14</span>)<br><br><span class="hljs-keyword">set</span>(SOURCE_FILES src/BaseEngine.cpp)<br><br><span class="hljs-comment"># 声明一个变量为SDL2_DIR包含所有头文件的路径</span><br><span class="hljs-keyword">set</span>(SDL2_DIR<br>        SDL2/SDL2-<span class="hljs-number">2.0</span>.<span class="hljs-number">14</span>/x86_64-w64-mingw32/<span class="hljs-keyword">include</span>/SDL2<br>        SDL2/SDL2_image-<span class="hljs-number">2.0</span>.<span class="hljs-number">5</span>/x86_64-w64-mingw32/<span class="hljs-keyword">include</span>/SDL2<br>        SDL2/SDL2_ttf-<span class="hljs-number">2.0</span>.<span class="hljs-number">15</span>/x86_64-w64-mingw32/<span class="hljs-keyword">include</span>/SDL2)<br>        <br><span class="hljs-comment"># 声明一个变量为SDL2_LINK包含所有库的路径</span><br><span class="hljs-keyword">set</span>(SDL2_LINK<br>        SDL2/SDL2-<span class="hljs-number">2.0</span>.<span class="hljs-number">14</span>/x86_64-w64-mingw32/bin<br>        SDL2/SDL2_image-<span class="hljs-number">2.0</span>.<span class="hljs-number">5</span>/x86_64-w64-mingw32/bin<br>        SDL2/SDL2_ttf-<span class="hljs-number">2.0</span>.<span class="hljs-number">15</span>/x86_64-w64-mingw32/bin)<br><br><span class="hljs-comment"># 关联所有的头文件</span><br><span class="hljs-keyword">include_directories</span>(<span class="hljs-variable">$&#123;SDL2_DIR&#125;</span>)<br><span class="hljs-comment"># 关联所有的库</span><br><span class="hljs-keyword">link_directories</span>(<span class="hljs-variable">$&#123;SDL2_LINK&#125;</span>)<br><br><span class="hljs-keyword">add_executable</span>(CPP_cw <span class="hljs-variable">$&#123;SOURCE_FILES&#125;</span>)<br><br><span class="hljs-comment"># 配置关联库的名称，如果只使用到SDL2主体的库，那只需要添加mingw32 SDL2 SDL2main</span><br><span class="hljs-keyword">target_link_libraries</span>(CPP_cw mingw32 SDL2 SDL2main SDL2_ttf SDL2_image)<br></code></pre></td></tr></table></figure>
+
+
+
+</blockquote>
+<p>只在CMakeLists里关联了库还不能正常运行项目，还需要将所有库中的bin,include,lib,share文件夹复制并粘贴到之前安装的MinGW的对应目录中。这样，项目就能正常运行了。</p>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>Jacckx</li>
+    <li><strong>本文链接：</strong><a href="http://jacckx.me/2021/03/12/Windows-CLion-SDL2/index.html" title="http:&#x2F;&#x2F;jacckx.me&#x2F;2021&#x2F;03&#x2F;12&#x2F;Windows-CLion-SDL2&#x2F;index.html">http:&#x2F;&#x2F;jacckx.me&#x2F;2021&#x2F;03&#x2F;12&#x2F;Windows-CLion-SDL2&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="/images/theme/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CLion/" rel="tag">CLion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDL2/" rel="tag">SDL2</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2021/02/28/Hexo_Custom_Domain/">Hexo博客搭建：个人域名绑定<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="toc-text">下载配置环境</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=987886543 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://github.com/Jacckx "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:jacckx@outlook.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
