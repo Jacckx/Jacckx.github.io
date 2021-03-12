@@ -15,11 +15,9 @@ layout: "about"
 
 
 
-E-mail: <jacckx@outlook.com>
+E-mail: <chen.shaojun@outlook.com>
 
 WeChat: _Jackx
-
-QQ: 987886543
 
 GitHub: [Jacckx](https://www.github.com/Jacckx)
 
